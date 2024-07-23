@@ -1,0 +1,39 @@
+<!-- You are tasked with creating a countdown timer using JavaScript and the setInterval function. The countdown timer should start at 30seconds and update every second until it reaches 00:00. When the countdown reaches zero, an alert should pop-up to notify that the countdown is completed. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>30 Seconds Timer</h1>
+    <div id="time">00:00</div>
+    <script>
+        let timer = document.getElementById("time");
+        let seconds = 30;
+        function updateTime(){
+            let min = Math.floor(seconds/60);
+            let sec = seconds % 60;
+            let formatTime = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+            time.textContent = formatTime;
+        }
+        console.log("Start Time: ",seconds);
+        function count(){
+            if(seconds>0){
+                seconds --;
+                console.log(seconds);
+                updateTime();
+            }
+            else{
+                clearInterval(runTime);
+                alert("Count down sucess!!");
+            }
+        }
+        updateTime();
+        let runTime = setInterval(count, 1000);
+    </script>
+</body>
+</html>
